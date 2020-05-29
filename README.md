@@ -13,7 +13,8 @@ Has the demo shown in the webinar, some important links to read and image to vie
 	- Understanding a hierarchy such as Parent and Child Components.
 	- State Uplifting (advanced concept)
 	- Fetch and how to use it to call APIs (advanced concept, in brief)
-4. (Hands-On) 
+4. (Hands-On) Demo
+
 ### Important Links / References:
 1. ReactJS documentation:
 Start from here - https://reactjs.org/docs/hello-world.html
