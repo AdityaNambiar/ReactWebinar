@@ -11,7 +11,6 @@ Has the demo shown in the webinar, some important links to read and image to vie
 	- States
 	- Props
 	- Understanding a hierarchy such as Parent and Child Components.
-	- State Uplifting (advanced concept)
 	- Fetch and how to use it to call APIs (advanced concept, in brief)
 4. (Hands-On) Demo
 
@@ -21,4 +20,7 @@ Start from here - https://reactjs.org/docs/hello-world.html
 
 2. Virtual DOM in-depth process:
 https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
+
+3. Useful tutorial by Mosh Hamedani:
+[React Tutorial - Learn React - React Crash Course [2019]](https://www.youtube.com/watch?v=Ke90Tje7VS0)
 
