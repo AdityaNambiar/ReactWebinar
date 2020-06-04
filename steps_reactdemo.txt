@@ -1,0 +1,12 @@
+1. Install the create-react-app tool.
+2. Enter: create-react-app ProjName
+3. Start working!
+
+Some useful React libraries:
+
+1. react-bootstrap
+2. react-router
+
+Some good practises:
+1. Make your code modular (but not too much that you end up having a lot of modular structure to maintain)
+	- Keep your components / utilities / assets under their respective directories.
