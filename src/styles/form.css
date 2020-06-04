@@ -1,0 +1,13 @@
+.form-control {
+	display: flex;
+	justify-content: left;
+	padding: 2em;
+}
+
+.form-control > input {
+	padding: 1em;
+}
+
+.form-control > input[type="text"] {
+	width: 100%;
+}

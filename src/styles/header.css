@@ -1,0 +1,29 @@
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 2em;
+	font-size: 1em;
+}
+
+/* 
+	Interpretation of below property:
+	In elements having '.nav' class,
+	select the span element (the first one - because we specified which 'span' child we wanted)
+	then apply the style on it.  
+*/
+.nav > span:first-child{
+	margin-top: 2%;
+}
+/* 
+	Interpretation of below property:
+	In elements having '.nav' class,
+	select the span element (2nd one - because we specified which 'span' child we wanted)
+	then apply the style on it.  
+*/
+.nav > span:nth-child(2){ /* The event count */
+	border: 2px solid black;
+	padding: 0.7em;
+	border-radius: 50%;
+	color: black;
+}
