@@ -1,6 +1,6 @@
 # ReactWebinar
-Has the demo shown in the webinar, some important links to read and image to view.
-
+Has the demo shown in the webinar, some important links to read and image to view.  
+Apart from design.odp,'steps_reactdemo.txt' and  a _customized_ README everything else is coming from 'create-react-app' tool. 
 ### Topics covered in Webinar: 
 1. How the traditional HTML+CSS rendering works? And why is it bad in terms of performance?
 2. Why ReactJS? 
