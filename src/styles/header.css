@@ -14,6 +14,7 @@
 */
 .nav > span:first-child{
 	margin-top: 2%;
+	font-size: 2em;
 }
 /* 
 	Interpretation of below property:
@@ -22,8 +23,9 @@
 	then apply the style on it.  
 */
 .nav > span:nth-child(2){ /* The event count */
-	border: 2px solid black;
-	padding: 0.7em;
-	border-radius: 50%;
+	font-family: 'Roboto', sans-serif;
+	display: inline-block;
+	font-size: 2em;
+	padding: 2% 2%;
 	color: black;
 }

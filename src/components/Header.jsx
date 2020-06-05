@@ -5,7 +5,7 @@ import '../styles/header.css';
 export default class Header extends React.Component{
 	constructor(props){
 		super(props);
-		//console.log(props);
+		console.log("Props: ", this.props);
 		const { noOfEventsVal } = this.props;
 		this.state = {
 			noOfEvents: noOfEventsVal 
@@ -19,7 +19,7 @@ export default class Header extends React.Component{
 			<header>
 				<nav className="nav">
 					<span>React Webinar Demo</span>
-					<span>{ noOfEvents }</span>
+					<span>{ noOfEvents } events listed</span>
 				</nav>
 			</header>
 		);

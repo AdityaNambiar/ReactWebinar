@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import EventListGroup from './EventListGroup';
 import '../styles/main.css';
 import '../styles/form.css';
 
@@ -8,20 +9,45 @@ export default class MainPage extends React.Component{
 		super(props);
 		this.state = {
 			eventName: '',
+			eventList: [],			
 			noOfEvents: 0
 		}
-		//this.handleSubmit = this.handleSubmit.bind(this);
-	}
-	handleSubmit(event){
-		console.log("handleSubmit: ",this.state.noOfEvents);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	saveEventName(event) {
 		const eventName = event.target.value;
-		this.setState({ eventName })
+		//console.log(this);
+		this.setState({ eventName })	
+	}
+	handleDeleteEvent = (eventName) => { // A method that is in the arrow function format.
+		const { eventList } = this.state;
+		const newEventList = eventList.filter( event => event.eventName !== eventName )
+		console.log(newEventList);
+		this.setState((prevState) => ({ 
+			eventList: newEventList,
+			noOfEvents: prevState.noOfEvents - 1
+		}));
+	}
+	handleSubmit(event){ // A method that uses .bind(this);
+		event.preventDefault();
+		//console.log(this);
+		const { eventName }= this.state;
+		const eventObj = {
+			eventName: eventName
+		}
+		this.setState((prevState) => ({ 
+				eventList: [...prevState.eventList, eventObj],
+				noOfEvents: prevState.noOfEvents + 1
+		}));
+		// 1. It first brings in the other eventobjs
+		// 2. creates a new array with the new eventObj
+		// 3. Updates the state with new array
 	}
 	render() {
 		const noOfEvents = this.state.noOfEvents;
-		//const { noOfEvents } = this.state; // Object destructing (Benefit of this syntax is you get to avoid writing "this.state" if you have multiple states)
+		const events = this.state.eventList;
+		//console.log("render: ",this.state.noOfEvents);
+		//const { noOfEvents, events } = this.state; // Object destructing (Benefit of this syntax is you get to avoid writing "this.state" if you have multiple states)
 		return(
 			<div className="container">
 				<Header noOfEventsVal={ noOfEvents }/>
@@ -34,9 +60,13 @@ export default class MainPage extends React.Component{
 					className="form-control"
 					onSubmit={this.handleSubmit}
 				>
-					<input type="text" placeholder="Enter an event name..." onChange={ (event) => this.saveEventName(event) } />
-					<input type="submit" value="Add a new event"/>
+					<input type="text" placeholder="Enter an event name..." onChange={(event) => this.saveEventName(event)}/>
+					<input type="submit" style={{
+						backgroundColor: 'lightgreen',
+						fontWeight: 'bold'
+					}} value="Add a new event"/>
 				</form>
+				<EventListGroup deleteEventHandler={this.handleDeleteEvent} eventList={ events }/>
 			</div>
 		);
 	}
