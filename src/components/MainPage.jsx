@@ -3,7 +3,15 @@ import Header from './Header';
 import EventListGroup from './EventListGroup';
 import '../styles/main.css';
 import '../styles/form.css';
+//import puzzle from '../assets/puzzle.png';
 
+//console.log(puzzle);
+
+/* An example of using images: */
+// const bgstyle = {
+// 	backgroundImage: `url('${puzzle}')`,
+// 	backgroundRepeat: 'repeat'
+// }
 export default class MainPage extends React.Component{
 	constructor(props){
 		super(props);
@@ -49,7 +57,8 @@ export default class MainPage extends React.Component{
 		//console.log("render: ",this.state.noOfEvents);
 		//const { noOfEvents, events } = this.state; // Object destructing (Benefit of this syntax is you get to avoid writing "this.state" if you have multiple states)
 		return(
-			<div className="container">
+			//<div className="container" style={ bgstyle }> { /* If you want to try out the background image example uncomment this by remove /* * / and curly braces */ } 
+			<div className="container" >
 				<Header noOfEventsVal={ noOfEvents }/>
 				<hr style={{
 						width: '85%',
