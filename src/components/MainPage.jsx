@@ -17,8 +17,7 @@ export default class MainPage extends React.Component{
 		super(props);
 		this.state = {
 			eventName: '',
-			eventList: [],			
-			noOfEvents: 0
+			eventList: []
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -32,8 +31,7 @@ export default class MainPage extends React.Component{
 		const newEventList = eventList.filter( event => event.eventName !== eventName )
 		console.log(newEventList);
 		this.setState((prevState) => ({ 
-			eventList: newEventList,
-			noOfEvents: prevState.noOfEvents - 1
+			eventList: newEventList
 		}));
 	}
 	handleSubmit(event){ // A method that uses .bind(this);
@@ -44,22 +42,19 @@ export default class MainPage extends React.Component{
 			eventName: eventName
 		}
 		this.setState((prevState) => ({ 
-				eventList: [...prevState.eventList, eventObj],
-				noOfEvents: prevState.noOfEvents + 1
+				eventList: [...prevState.eventList, eventObj]
 		}));
 		// 1. It first brings in the other eventobjs
 		// 2. creates a new array with the new eventObj
 		// 3. Updates the state with new array
 	}
 	render() {
-		const noOfEvents = this.state.noOfEvents;
 		const events = this.state.eventList;
-		//console.log("render: ",this.state.noOfEvents);
 		//const { noOfEvents, events } = this.state; // Object destructing (Benefit of this syntax is you get to avoid writing "this.state" if you have multiple states)
 		return(
 			//<div className="container" style={ bgstyle }> { /* If you want to try out the background image example uncomment this by remove /* * / and curly braces */ } 
 			<div className="container" >
-				<Header noOfEventsVal={ noOfEvents }/>
+				<Header noOfEventsVal={ events.length }/>
 				<hr style={{
 						width: '85%',
 						margin: '0px auto'
