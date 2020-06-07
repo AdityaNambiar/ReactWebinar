@@ -1,46 +1,56 @@
-import React from 'react';
-//import EventListItem from './EventListItem';
-import '../styles/eventlisting.css';
+import React from "react";
+import EventListItem from "./EventListItem";
 
-const divStyle = {
-	display: 'flex',
-	justifyContent: 'space-between',
-	flexDirection: 'column',
-	border: '0.5em inset skyblue',
-	backgroundColor: 'skyblue'
-}
-const h3Style = {
-	fontWeight: 'lighter',
-	fontSize: '2em',
-	padding: '2.5em'
-}
-function EventListGroup(props){
-	const { eventList, deleteEventHandler } = props;
-	return(
-		<div style={ divStyle } >
-			{
-			  eventList.length === 0?
-			  <h3 style={ h3Style }>No events generated</h3>:
-			  eventList.map((ev, index) => 
-					<EventListItem key={index} deleteEventHandler={deleteEventHandler} eventName={ ev.eventName } />
-			  )
-			}
-		</div>
-	);
+function EventListGroup(props) {
+  const { eventList, deleteEventHandler } = props;
+  return (
+    <div className="row">
+      {eventList.length === 0 ? (
+        <div className="card">
+          <div className="card-header bg bg-danger text-white">
+            Oops! No event found.
+          </div>
+          <div className="card-body bg bg-dark text-white">
+            <p>Please click "Create Event" button above to add an event!</p>
+          </div>
+        </div>
+      ) : (
+        eventList.map((ev, index) => (
+          //<div className="row mt-2">
+          <div className="col-md-4 mb-2">
+            <EventListItem
+              key={index}
+              deleteEventHandler={deleteEventHandler}
+              eventList={ev}
+            />
+          </div>
+          //</div>
+        ))
+      )}
+    </div>
+  );
 }
 
-class EventListItem extends React.Component {
-	render() {
-		const eventName = this.props.eventName;
-		const { deleteEventHandler } = this.props;
-		//const { eventName } = this.state; // Object destructing (Benefit of this syntax is you get to avoid writing "this.state" if you have multiple states)
-		return(
-			<div className="itemCont">
-			  <span>{ eventName }</span>
-			  <span onClick={() => deleteEventHandler(eventName)}>&#x2715;</span>
-			</div>
-		);
-	}
-}
+/*class EventListItem extends React.Component {
+  render() {
+    const { eventList, deleteEventHandler } = this.props;
+    const { eventName, eventSchedule, eventVenue, eventDescription } = eventList;
+    return (
+      <div className="col-sm-6">
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{ eventName }</h5>
+            <span className="col-sm-6" onClick={() => deleteEventHandler(eventName)}>&#x2715;</span>
+            <div className="card-text">
+              <p>Date and time: { eventSchedule }</p>
+              <p>Venue: { eventVenue }</p>
+              <p>Description: { eventDescription }</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}*/
 
 export default EventListGroup;
