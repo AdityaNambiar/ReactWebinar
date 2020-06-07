@@ -1,32 +1,32 @@
 import React from "react";
-import EventListItem from './EventListItem';
+import EventListItem from "./EventListItem";
 
 function EventListGroup(props) {
   const { eventList, deleteEventHandler } = props;
   return (
-    <div>
-      {
-      	eventList.length === 0 ? (
-	        <div className="card">
-	          <div className="card-header bg bg-danger text-white">
-	            Oops! No event found.
-	          </div>
-	          <div className="card-body bg bg-dark text-white">
-	            <p>Please click "Create Event" button above to add an event!</p>
-	          </div>
-	        </div>
-      	) : (
-	        eventList.map((ev, index) => (
-	          <div className="row mt-2">
-	            <EventListItem
-	              key={index}
-	              deleteEventHandler={deleteEventHandler}
-	              eventList={ev}
-	            />
-	          </div>
-	        ))
-      	)
-      }
+    <div className="row">
+      {eventList.length === 0 ? (
+        <div className="card">
+          <div className="card-header bg bg-danger text-white">
+            Oops! No event found.
+          </div>
+          <div className="card-body bg bg-dark text-white">
+            <p>Please click "Create Event" button above to add an event!</p>
+          </div>
+        </div>
+      ) : (
+        eventList.map((ev, index) => (
+          //<div className="row mt-2">
+          <div className="col-md-4 mb-2">
+            <EventListItem
+              key={index}
+              deleteEventHandler={deleteEventHandler}
+              eventList={ev}
+            />
+          </div>
+          //</div>
+        ))
+      )}
     </div>
   );
 }
@@ -51,6 +51,6 @@ function EventListGroup(props) {
       </div>
     );
   }
-}*/ 
+}*/
 
 export default EventListGroup;

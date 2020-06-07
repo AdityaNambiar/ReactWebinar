@@ -6,43 +6,48 @@ export default class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      eventName: 'A1',
+      eventName: "A1",
       eventSchedule: "null",
-      eventDescription: '123', 
-      eventVenue: 'Mumbai',
+      eventDescription: "123",
+      eventVenue: "Mumbai",
       eventList: [
-      	{
-	      eventName: 'A1',
-	      eventSchedule: "null",
-	      eventDescription: '123', 
-	      eventVenue: 'Mumbai'
-      	},
-      	{
-	      eventName: 'A1',
-	      eventSchedule: "null",
-	      eventDescription: '123', 
-	      eventVenue: 'Mumbai'
-      	}
-      ]
+        {
+          eventName: "A1",
+          eventSchedule: "null",
+          eventDescription: "123",
+          eventVenue: "Mumbai",
+        },
+        {
+          eventName: "A2",
+          eventSchedule: "null",
+          eventDescription: "12345 test",
+          eventVenue: "Delhi",
+        },
+      ],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
   handleSubmit(e) {
     // A method that uses .bind(this);
     e.preventDefault();
     //console.log(this);
-    const { eventName, eventSchedule, eventVenue, eventDescription } = this.state;
+    const {
+      eventName,
+      eventSchedule,
+      eventVenue,
+      eventDescription,
+    } = this.state;
     const eventObj = {
       eventName: eventName,
       eventSchedule: eventSchedule,
       eventVenue: eventVenue,
-      eventDescription: eventDescription 
+      eventDescription: eventDescription,
     };
     this.setState((prevState) => ({
-      eventList: [...prevState.eventList, eventObj]
+      eventList: [...prevState.eventList, eventObj],
     }));
     // 1. It first brings in the other eventobjs
     // 2. creates a new array with the new eventObj
@@ -56,7 +61,7 @@ export default class MainPage extends React.Component {
     );
     console.log(newEventList);
     this.setState((prevState) => ({
-      eventList: newEventList
+      eventList: newEventList,
     }));
   };
   render() {
@@ -64,7 +69,7 @@ export default class MainPage extends React.Component {
     //const { eventList } = this.state; // Object destructing (Benefit of this syntax is you get to avoid writing "this.state" if you have multiple states)
     return (
       <div className="container">
-        <Header noOfEventsVal={ events.length } />
+        <Header noOfEventsVal={events.length} />
         <div>
           <button
             type="button"
@@ -118,7 +123,10 @@ export default class MainPage extends React.Component {
                       </div>
                     </div>
                     <div className="form-group row">
-                      <label for="eventSchedule" className="col-sm-3 col-form-label">
+                      <label
+                        for="eventSchedule"
+                        className="col-sm-3 col-form-label"
+                      >
                         Date & time:
                       </label>
                       <div className="col-sm-6">
@@ -167,13 +175,12 @@ export default class MainPage extends React.Component {
                         ></textarea>
                       </div>
                     </div>
-                    <div className="form-group row">
-                      <div className="col-sm-9">
-                        <button type="submit" className="btn btn-success">
-	                    	Add Event
-	                  	</button>
-                      </div>
-                    </div>
+                    <button
+                      type="submit"
+                      className="btn btn-success float-right"
+                    >
+                      Add Event
+                    </button>
                   </form>
                 </div>
               </div>
@@ -181,10 +188,12 @@ export default class MainPage extends React.Component {
           </div>
         </div>
         <hr />
-        <EventListGroup
-          deleteEventHandler={this.handleDeleteEvent}
-          eventList={events}
-        />
+        <div>
+          <EventListGroup
+            deleteEventHandler={this.handleDeleteEvent}
+            eventList={events}
+          />
+        </div>
       </div>
     );
   }
