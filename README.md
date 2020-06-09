@@ -13,7 +13,7 @@ Apart from design.odp,'steps_reactdemo.txt' and  a _customized_ README everythin
 	- Understanding a hierarchy such as Parent and Child Components.
 	- Fetch and how to use it to call APIs (advanced concept, in brief)
 4. (Hands-On) Demo
-
+	- You can access complete demo here: [EventListDemo repository](https://github.com/AdityaNambiar/EventListDemo)
 ### Important Links / References:
 1. ReactJS documentation:
 Start from here - https://reactjs.org/docs/hello-world.html
